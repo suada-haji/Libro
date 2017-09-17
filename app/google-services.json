@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "599565361977",
+    "firebase_url": "https://libro-6c185.firebaseio.com",
+    "project_id": "libro-6c185",
+    "storage_bucket": "libro-6c185.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599565361977:android:395a082f04851a8d",
+        "android_client_info": {
+          "package_name": "com.suadahaji.libro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599565361977-kib5be5iq3pa0cmtg25lvrrfq0pilga8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.suadahaji.libro",
+            "certificate_hash": "d92d71546aa0b843f7d08f9eac20697d75058b92"
+          }
+        },
+        {
+          "client_id": "599565361977-o01iabof4isiqpdado9tqdb5s72gqg9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP3FUUQiHuXYUAYWU0hcytTT_20BjiGOI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599565361977-o01iabof4isiqpdado9tqdb5s72gqg9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
