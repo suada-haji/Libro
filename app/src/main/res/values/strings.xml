@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Libro</string>
     <string name="books">Books</string>
+    <string name="books_empty_state">No books found</string>
+    <string name="fetch_error">Couldn\'\\t load books</string>
 </resources>
