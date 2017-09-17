@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -41,6 +42,9 @@ public class BookDetailActivity extends AppCompatActivity {
     @BindView(R.id.book_image)
     ImageView bookImage;
 
+    @BindView(R.id.ratingBar)
+    RatingBar ratingBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,8 @@ public class BookDetailActivity extends AppCompatActivity {
             bookPages.setText(book.getPages());
             bookRating.setText(String.valueOf(book.getRatings()));
             Picasso.with(this).load(book.getImage()).into(bookImage);
+
+            ratingBar.setRating((float) book.getRatings());
         }
     }
 

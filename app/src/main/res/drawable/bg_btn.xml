@@ -3,23 +3,23 @@
     <item android:state_pressed="true" >
         <shape android:shape="rectangle"  >
             <corners android:radius="5dp" />
-            <gradient android:startColor="#070A2A"
-                android:endColor="#1E2143"/>
+            <gradient android:startColor="#DC2362"
+                android:endColor="#FF4081"/>
         </shape>
     </item>
     <item android:state_focused="true">
         <shape android:shape="rectangle"  >
             <corners android:radius="5dp" />
-            <gradient android:startColor="#070A2A"
-                android:endColor="#1E2143"/>
+            <gradient android:startColor="#DC2362"
+                android:endColor="#FF4081"/>
 
         </shape>
     </item>
     <item >
         <shape android:shape="rectangle"  >
             <corners android:radius="5dp" />
-            <gradient android:startColor="#070A2A"
-                android:endColor="#1E2143"/>
+            <gradient android:startColor="#DC2362"
+                android:endColor="#FF4081"/>
         </shape>
     </item>
 </selector>

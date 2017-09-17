@@ -29,7 +29,7 @@ public class Book implements Parcelable {
     @SerializedName("pages")
     private String pages;
     @SerializedName("ratings")
-    private Double ratings;
+    private double ratings;
 
     private Book() {
     }
@@ -140,11 +140,11 @@ public class Book implements Parcelable {
         this.pages = pages;
     }
 
-    public Double getRatings() {
+    public double getRatings() {
         return ratings;
     }
 
-    public void setRatings(final Double ratings) {
+    public void setRatings(final double ratings) {
         this.ratings = ratings;
     }
 }
