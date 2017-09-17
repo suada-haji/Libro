@@ -10,14 +10,14 @@ import java.util.ArrayList;
  */
 
 public class BookResponse {
-    @SerializedName("books")
-    private ArrayList<Book> movies;
+    @SerializedName("")
+    private ArrayList<Book> books;
 
-    private BookResponse(final ArrayList<Book> movies) {
-        this.movies = movies;
+    private BookResponse(final ArrayList<Book> books) {
+        this.books = books;
     }
 
-    private ArrayList<Book> getMovies() {
-        return movies;
+    public ArrayList<Book> getBooks() {
+        return books;
     }
 }

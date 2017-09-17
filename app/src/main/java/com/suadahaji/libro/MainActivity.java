@@ -1,61 +1,94 @@
 package com.suadahaji.libro;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.util.Log;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import co.gofynd.gravityview.GravityView;
+import com.suadahaji.libro.api.ApiManager;
+import com.suadahaji.libro.dagger.BaseApplication;
+import com.suadahaji.libro.models.Book;
+import com.suadahaji.libro.mvp_list.BookListContract;
+import com.suadahaji.libro.mvp_list.BookListPresenter;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
-    @BindView(R.id.bg)
-    ImageView bg;
+import javax.inject.Inject;
 
-    @BindView(R.id.tv_logo)
-    TextView logoTextView;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
-    private GravityView gravityView;
+public class MainActivity extends AppCompatActivity implements BookListContract.BooksView {
 
-    public static Typeface APPLE_CHANCERY;
+    private BookListPresenter presenter;
 
+    private ArrayList<Book> books = new ArrayList<>();
+
+    public static final String BOOK = "BOOK";
+
+    private static final String TAG = "MainActivity";
+    @Inject
+    ApiManager apiManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        ButterKnife.bind(this);
+        ((BaseApplication) getApplicationContext()).getAppComponent().inject(this);
 
-        gravityView = GravityView.getInstance(this)
-                .setImage(bg, R.drawable.background_two)
-                .center();
+        presenter = new BookListPresenter(apiManager, Schedulers.io(), AndroidSchedulers.mainThread());
 
-        if (!gravityView.deviceSupported()) {
-            Toast.makeText(getBaseContext(), "Gyroscope sensor not available in your device", Toast.LENGTH_LONG).show();
-        }
-
-        APPLE_CHANCERY = Typeface.createFromAsset(getAssets(), "fonts/Apple-Chancery.ttf");
-
-        logoTextView.setTypeface(APPLE_CHANCERY);
 
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        gravityView.registerListener();
+    protected void onStart() {
+        super.onStart();
+        presenter.setView(this);
+        presenter.displayBooks();
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        gravityView.unRegisterListener();
+    protected void onStop() {
+        super.onStop();
+        presenter.destroyView();
+    }
+
+    @Override
+    public void showBooks(final List<Book> books) {
+        this.books.clear();
+        this.books.addAll(books);
+        Log.d(TAG, "showBooks size : " + books.size());
+
+    }
+
+    @Override
+    public void showProgressBar() {
+        Log.d(TAG, "showProgressBar: ");
+
+    }
+
+    @Override
+    public void hideProgressBar() {
+        Log.d(TAG, "hideProgressBar: ");
+
+    }
+
+    @Override
+    public void showErrorMessage() {
+        Log.d(TAG, "showErrorMessage: ");
+
+    }
+
+    @Override
+    public void showEmptyStateMessage() {
+        Log.d(TAG, "showEmptyStateMessage: ");
+
+    }
+
+    @Override
+    public void onBookClicked(final Book book) {
+
     }
 }

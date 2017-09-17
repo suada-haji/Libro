@@ -74,75 +74,75 @@ public class Book implements Parcelable {
         parcel.writeString(pages);
     }
 
-    private int getId() {
+    public int getId() {
         return id;
     }
 
-    private void setId(final int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
-    private String getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    private void setAuthor(final String author) {
+    public void setAuthor(final String author) {
         this.author = author;
     }
 
-    private String getDate() {
+    public String getDate() {
         return date;
     }
 
-    private void setDate(final String date) {
+    public void setDate(final String date) {
         this.date = date;
     }
 
-    private String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    private void setDescription(final String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
-    private String getImage() {
+    public String getImage() {
         return image;
     }
 
-    private void setImage(final String image) {
+    public void setImage(final String image) {
         this.image = image;
     }
 
-    private String getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    private void setIsbn(final String isbn) {
+    public void setIsbn(final String isbn) {
         this.isbn = isbn;
     }
 
-    private String getName() {
+    public String getName() {
         return name;
     }
 
-    private void setName(final String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
-    private String getPages() {
+    public String getPages() {
         return pages;
     }
 
-    private void setPages(final String pages) {
+    public void setPages(final String pages) {
         this.pages = pages;
     }
 
-    private Double getRatings() {
+    public Double getRatings() {
         return ratings;
     }
 
-    private void setRatings(final Double ratings) {
+    public void setRatings(final Double ratings) {
         this.ratings = ratings;
     }
 }
