@@ -43,6 +43,7 @@ public class Book implements Parcelable {
         isbn = in.readString();
         name = in.readString();
         pages = in.readString();
+        ratings = in.readDouble();
     }
 
     public static final Creator<Book> CREATOR = new Creator<Book>() {
@@ -72,6 +73,7 @@ public class Book implements Parcelable {
         parcel.writeString(isbn);
         parcel.writeString(name);
         parcel.writeString(pages);
+        parcel.writeDouble(ratings);
     }
 
     public int getId() {

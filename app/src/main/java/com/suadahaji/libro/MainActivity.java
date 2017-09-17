@@ -1,5 +1,6 @@
 package com.suadahaji.libro;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -8,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.suadahaji.libro.api.ApiManager;
 import com.suadahaji.libro.dagger.BaseApplication;
@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements BookListContract.
         ((BaseApplication) getApplicationContext()).getAppComponent().inject(this);
 
         presenter = new BookListPresenter(apiManager, Schedulers.io(), AndroidSchedulers.mainThread());
+        presenter.setView(this);
+        presenter.displayBooks();
 
         setUpRecyclerView();
     }
@@ -80,15 +82,8 @@ public class MainActivity extends AppCompatActivity implements BookListContract.
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        presenter.setView(this);
-        presenter.displayBooks();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
         presenter.destroyView();
     }
 
@@ -129,7 +124,8 @@ public class MainActivity extends AppCompatActivity implements BookListContract.
 
     @Override
     public void onBookClicked(final Book book) {
-        Toast.makeText(this, book.getName(), Toast.LENGTH_SHORT).show();
-
+        Intent intent = new Intent(this, BookDetailActivity.class);
+        intent.putExtra(BOOK, book);
+        startActivity(intent);
     }
 }
